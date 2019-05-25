@@ -5,7 +5,8 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class EchoImpl extends UnicastRemoteObject implements Echo{
 
-    public EchoImpl() throws RemoteException {
+    public EchoImpl(int port) throws RemoteException {
+    super(port);
     }
 
     public String getEcho(String s) throws RemoteException {

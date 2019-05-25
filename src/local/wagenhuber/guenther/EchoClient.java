@@ -8,15 +8,17 @@ import java.rmi.RemoteException;
 public class EchoClient {
 
     public static void main(String[] args) throws RemoteException, NotBoundException, MalformedURLException {
-        if (args.length != 2) {
-            System.err.println("java EchoClient <host> <text>");
+        if (args.length != 3) {
+            System.err.println("java EchoClient <host> <port> <text>");
             System.exit(1);
         }
 
         String host = args[0];
-        String text = args[1];
+        int port = Integer.parseInt(args[1]);
+        String text = args[2];
 
-        Echo remote = ((Echo) Naming.lookup("//" + host + "/echo"));
+        //Default Port RMI-Registry TCP/1099
+        Echo remote = ((Echo) Naming.lookup("//" + host + ":" + port + "/echo"));
         String received = remote.getEcho(text);
         System.out.println(received);
     }
