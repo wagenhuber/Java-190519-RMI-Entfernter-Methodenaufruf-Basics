@@ -1,3 +1,7 @@
+//Konkrete Implementierung der Methoden (von Interface Echo)
+//Unicast Remote Object -> Objekt wird remote-fähig gemacht um Client/Server-Kommunikation zu ermöglichen
+//stellt das entfernte Objekt dar
+
 package local.wagenhuber.guenther;
 
 import java.rmi.RemoteException;
